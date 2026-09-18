@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# Renode/runtime files
+*.resc
+*.log
+
+# Local CMSIS-SVD database
+svd/cmsis-svd-data/
