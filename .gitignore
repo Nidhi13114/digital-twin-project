@@ -16,8 +16,25 @@ env/
 .idea/
 
 # Renode/runtime files
-*.resc
 *.log
 
 # Local CMSIS-SVD database
 svd/cmsis-svd-data/
+
+# Flask / environment secrets
+.env
+.env.*
+
+# Python cache and compiled files
+*.py[cod]
+
+# Generated firmware uploads and logs
+uploads/*
+!uploads/.gitkeep
+
+ota_dashboard/uploads/*
+!ota_dashboard/uploads/.gitkeep
+
+# Local configuration
+instance/
+

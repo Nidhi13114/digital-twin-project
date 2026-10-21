@@ -1,0 +1,23 @@
+
+ // STM32F401CE Platform Description
+
+nvic: IRQControllers.NVIC @ sysbus 0xE000E000
+
+cpu: CPU.CortexM @ sysbus
+    cpuType: "cortex-m4"
+    nvic: nvic
+
+flash: Memory.MappedMemory @ sysbus 0x08000000
+    size: 0x80000
+
+sram: Memory.MappedMemory @ sysbus 0x20000000
+    size: 0x18000
+
+usart2: UART.STM32_UART @ sysbus <0x40004400, +0x400>
+    -> nvic@38
+
+gpioA: GPIOPort.STM32_GPIOPort @ sysbus <0x40020000, +0x400>
+    0 -> userLed@0
+
+userLed: Miscellaneous.LED @ gpioA
+

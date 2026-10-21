@@ -1,0 +1,17 @@
+mach create "stm32f401_node"
+
+machine LoadPlatformDescription @renode_helper_files/stm32f401.repl
+
+# Log USART2 peripheral accesses
+sysbus LogPeripheralAccess sysbus.usart2 true
+
+# Capture UART output
+sysbus.usart2 CreateFileBackend @/home/lavender/storage/Work/Projects/Embedded/RPI/ota_dashboard/renode_helper_files/test_firmware/uart_output.log
+
+echo "Platform loaded successfully!"
+
+sysbus LoadELF @renode_helper_files/test_firmware/firmware.elf
+
+start
+sleep 3
+quit
